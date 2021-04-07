@@ -15,10 +15,16 @@
 # limitations under the License.
 #
 
-# Ignore everything
-*
-# DON'T ignore the .gitignore
-!.gitignore
-!superset_config.py
-!superset_config_local.example
-!superset_config_docker.py
+#
+# This is an example "local" configuration file. In order to set/override config
+# options that ONLY apply to your local environment, simply copy/rename this file
+# to docker/pythonpath/superset_config_docker.py
+# It ends up being imported by docker/superset_config.py which is loaded by
+# superset/config.py
+#
+
+# SQLALCHEMY_DATABASE_URI = "postgresql+psycopg2://pguser:pgpwd@some.host/superset"
+SQLALCHEMY_ECHO = False
+FEATURE_FLAGS = {
+    "ALERT_REPORTS": True,
+}
