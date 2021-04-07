@@ -27,7 +27,7 @@ version: "3.7"
 services:
   monitor:
     env_file: docker/.env
-    image: godeltech/codereview.monitor
+    image: godeltech/codereview.monitor:0.0.1
     container_name: godeltech_monitor
     restart: unless-stopped
     volumes:
@@ -35,7 +35,7 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock
 
   redis:
-    image: redis:3.2
+    image: redis:6.2.1
     container_name: superset_cache
     restart: unless-stopped
     volumes:
@@ -43,7 +43,7 @@ services:
 
   db:
     env_file: docker/.env
-    image: postgres:10
+    image: postgres:13.2
     container_name: superset_db
     restart: unless-stopped
     volumes:
@@ -51,7 +51,7 @@ services:
 
   pgadmin:
     env_file: docker/.env
-    image: dpage/pgadmin4
+    image: dpage/pgadmin4:5.1
     container_name: superset_pgadmin
     restart: unless-stopped
     ports:
