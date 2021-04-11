@@ -55,7 +55,10 @@ services:
     container_name: superset_pgadmin
     restart: unless-stopped
     ports:
-      - 80:80
+      - target: 80
+        published: 5050
+        protocol: tcp
+        mode: host
 
   superset:
     env_file: docker/.env
