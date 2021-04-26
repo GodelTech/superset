@@ -27,7 +27,7 @@ version: "3.7"
 services:
   monitor:
     env_file: docker/.env
-    image: godeltech/codereview.monitor:0.0.5
+    image: godeltech/codereview.monitor:latest
     container_name: godeltech_monitor
     restart: unless-stopped
     volumes:
