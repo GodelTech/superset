@@ -59,6 +59,8 @@ services:
         published: 5050
         protocol: tcp
         mode: host
+    volumes:
+      - pgadmin_home:/var/lib/pgadmin
 
   superset:
     env_file: docker/.env
@@ -109,4 +111,6 @@ volumes:
   redis:
     external: false
   monitor:
+    external: false
+  pgadmin_home:
     external: false
